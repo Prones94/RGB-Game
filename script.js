@@ -7,7 +7,7 @@ let colors = [
     "rgb(255, 0, 255)",
 ]
 let squares = document.querySelectorAll(".square");
-let pickedColor = colors[3];
+let pickedColor = pickColor();
 let colorDisplay = document.getElementById("colorDisplay");
 let messageDisplay = document.querySelector("#message");
 
@@ -30,7 +30,7 @@ for(var i = 0; i < squares.length; i++){
             messageDisplay.textContent = "Try Again"
         }
     });
-}
+};
 
 function changeColors(color) {
     // Loop through all squares
@@ -38,4 +38,9 @@ function changeColors(color) {
         // Change each color to match correct answer
         squares[i].style.backgroundColor = color
     }
+};
+
+function pickColor(){
+     var randomColor = Math.floor(Math.random() * colors.length);
+     return colors[randomColor];
 }
