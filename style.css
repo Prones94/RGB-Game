@@ -8,6 +8,7 @@ body {
     padding-bottom: 30%; 
     margin: 1.66%;
 }
+
 #container {
     max-width: 600px;
     margin: 0 auto;
@@ -21,9 +22,12 @@ h1, h2 {
     justify-content: center;
 }
 
-span {
-    color: white;
 
+#stripe {
     display: flex;
     justify-content: center;
+
+    background: white;
+    color: black;
+    height: 30px;
 }
