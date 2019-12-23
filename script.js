@@ -5,6 +5,8 @@ let pickedColor = pickColor();
 let colorDisplay = document.getElementById("colorDisplay");
 let messageDisplay = document.querySelector("#message");
 let resetButton = document.querySelector("#reset")
+let easyButton = document.querySelector("#easy");
+let hardButton = document.querySelector("#hard")
 
 colorDisplay.textContent = pickedColor;
 
@@ -74,4 +76,30 @@ resetButton.addEventListener("click", function(){
         squares[i].style.background = colors[i]
     }
     header.style.backgroundColor = "#232323"
+});
+
+easyButton.addEventListener("click", function(){
+    easyButton.classList.add("selected");
+    hardButton.classList.remove("selected")
+    colors = generateRandomColors(3);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    for(i = 0;i < squares.length; i++){
+        if (colors[i]){
+            squares[i].style.backgroundColor = colors[i]
+        } else {
+            squares[i].style.display = "none"
+        }
+    }
+});
+hardButton.addEventListener("click", function(){
+    hardButton.classList.add("selected");
+    easyButton.classList.remove("selected");
+    colors = generateRandomColors(6);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    for(i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+        squares[i].style.display = "block"
+    }
 })
