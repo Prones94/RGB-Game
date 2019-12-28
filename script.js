@@ -1,13 +1,48 @@
-let colors = generateRandomColors(6);
-let header = document.querySelector("h1")
+let numSquares = 6; 
+let colors = generateRandomColors(numSquares);
+let header = document.querySelector("header")
 let squares = document.querySelectorAll(".square");
 let pickedColor = pickColor();
 let colorDisplay = document.getElementById("colorDisplay");
 let messageDisplay = document.querySelector("#message");
 let resetButton = document.querySelector("#reset")
-let easyButton = document.querySelector("#easy");
-let hardButton = document.querySelector("#hard")
+let modeButtons = document.querySelectorAll(".mode")
 
+for (var i = 0;i < modeButtons.length;i++){
+    modeButtons[i].addEventListener("click", function(){
+        modeButtons[0].classList.remove("selected");
+        modeButtons[1].classList.remove("selected");
+        this.classList.add("selected")
+        this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+        reset();
+    });
+
+    /*
+    - figure how many squares show
+    - pick new colors
+    - pick new pickedColor
+    -update page to reflect new changes
+    */
+}
+
+function reset(){
+    colors = generateRandomColors(numSquares);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    this.textContent = "New Colors";
+    messageDisplay.textContent = "";
+    for(var i = 0;i < squares.length; i++){
+        if(colors[i]){
+            squares[i].style.display = "block";
+            squares[i].style.background = colors[i];
+        } else {
+            squares[i].style.display = "none";
+
+        }
+        squares[i].style.background = colors[i];
+    }
+    header.style.backgroundColor = "steelblue"
+}
 colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++){
@@ -65,41 +100,7 @@ function randomColor(){
 };
 
 resetButton.addEventListener("click", function(){
-    // Generate new random colors
-    colors = generateRandomColors(6)
-    // Pick random color from array
-    pickedColor = pickColor();
-    // Change color display to match picked Color
-    colorDisplay.textContent = pickedColor;
-    // Change color of array
-    for(i = 0;i < squares.length; i++){
-        squares[i].style.background = colors[i]
-    }
-    header.style.backgroundColor = "#232323"
+    reset();
 });
 
-easyButton.addEventListener("click", function(){
-    easyButton.classList.add("selected");
-    hardButton.classList.remove("selected")
-    colors = generateRandomColors(3);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for(i = 0;i < squares.length; i++){
-        if (colors[i]){
-            squares[i].style.backgroundColor = colors[i]
-        } else {
-            squares[i].style.display = "none"
-        }
-    }
-});
-hardButton.addEventListener("click", function(){
-    hardButton.classList.add("selected");
-    easyButton.classList.remove("selected");
-    colors = generateRandomColors(6);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for(i = 0; i < squares.length; i++){
-        squares[i].style.backgroundColor = colors[i];
-        squares[i].style.display = "block"
-    }
-})
+
