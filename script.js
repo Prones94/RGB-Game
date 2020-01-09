@@ -1,4 +1,4 @@
-let numSquares = 6; 
+let numSquares = 9; 
 let colors = [];
 let header = document.querySelector("header")
 let squares = document.querySelectorAll(".square");
@@ -22,7 +22,7 @@ function setUpModeButtons(){
             modeButtons[0].classList.remove("selected");
             modeButtons[1].classList.remove("selected");
             this.classList.add("selected")
-            this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+            this.textContent === "Easy" ? numSquares = 3: numSquares = 9;
             reset();
         });
     }
