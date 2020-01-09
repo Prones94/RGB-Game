@@ -19,3 +19,10 @@ Below the header there is some different color boxes that show up. Depending on 
 <img width="767" alt="Screen Shot 2020-01-09 at 3 20 51 PM" src="https://user-images.githubusercontent.com/28763100/72112824-a7178680-32f3-11ea-94ea-e90bd373bcc4.png">
 
 IF the user guesses wrong, the program will fade away the incorrect box and then ask you to pick again. Once choosing the right color, the heading and all the boxes will change into the same color as the correct answer and you will win. The computer will then ask if you'd like to play again.
+
+
+## Authors
+Ian Rones, Make School student class of 2021
+
+## Acknowledgements
+Colt Steele, and his Udemy course The Web Developer Bootcamp for giving me the idea and template
