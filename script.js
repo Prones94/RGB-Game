@@ -17,12 +17,13 @@ function init(){
 };
 
 function setUpModeButtons(){
+    // This functions controls the easy, medium, and hard buttons
     for (var i = 0;i < modeButtons.length;i++){
         modeButtons[i].addEventListener("click", function(){
             modeButtons[0].classList.remove("selected");
             modeButtons[1].classList.remove("selected");
+            modeButtons[2].classList.remove("selected");
             this.classList.add("selected")
-            // this.textContent === "Easy" ? numSquares = 3: numSquares = 9;
             switch(this.textContent){
                 case("Easy"):
                 numSquares = 3;
@@ -40,10 +41,14 @@ function setUpModeButtons(){
 }
 
 function setUpSquares(){
+    /*
+    This function controls the colors for each box, 
+    giving them each a different color, an event listener to check
+    if user guessed correctly or not
+    */
     for(var i = 0; i < squares.length; i++){
         // Add initial colors to squares
         squares[i].style.backgroundColor = colors[i];
-    
         // Add click listeners to squares
         squares[i].addEventListener("click", function(){
             // Grab color of clicked square
@@ -62,6 +67,7 @@ function setUpSquares(){
     };
 }
 function reset(){
+    // This function controls the reset and Paly again button located on the left hand side of the mode buttons
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
