@@ -22,7 +22,18 @@ function setUpModeButtons(){
             modeButtons[0].classList.remove("selected");
             modeButtons[1].classList.remove("selected");
             this.classList.add("selected")
-            this.textContent === "Easy" ? numSquares = 3: numSquares = 9;
+            // this.textContent === "Easy" ? numSquares = 3: numSquares = 9;
+            switch(this.textContent){
+                case("Easy"):
+                numSquares = 3;
+                break;
+                case("Medium"):
+                numSquares = 6;
+                break;
+                case("Hard"):
+                numSquares = 9;
+                break;
+            }
             reset();
         });
     }
